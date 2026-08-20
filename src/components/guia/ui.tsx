@@ -31,7 +31,7 @@ export function SectionHeading({ index, title }: { index: number; title: string 
   const shape = blobShapes[index % blobShapes.length];
   const color = blobColors[index % blobColors.length];
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4 min-[940px]:flex-col min-[940px]:items-start min-[940px]:gap-3">
       <span
         aria-hidden="true"
         className={`grid size-14 shrink-0 place-items-center font-display text-2xl sm:size-16 sm:text-3xl ${shape} ${color}`}
@@ -41,6 +41,7 @@ export function SectionHeading({ index, title }: { index: number; title: string 
       <h2 className="text-3xl leading-tight text-navy sm:text-4xl">{title}</h2>
     </div>
   );
+
 }
 
 export function FadeUp({
