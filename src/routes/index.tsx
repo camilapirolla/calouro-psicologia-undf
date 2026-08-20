@@ -489,7 +489,7 @@ const sections: Section[] = [
   },
   {
     id: "conselhos",
-    nav: "Conselhos",
+    nav: "Canais oficiais",
     title: "Canais oficiais da profissão",
     keywords: "conselho crp cfp codigo de etica profissao resolucoes fiscalizacao links oficiais",
     content: (
