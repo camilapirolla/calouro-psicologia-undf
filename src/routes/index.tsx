@@ -660,7 +660,7 @@ const chips = [
 
 function GuiaDoCalouro() {
   const [query, setQuery] = useState("");
-  const [activeId, setActiveId] = useState(sections[0].id);
+  const [activeId, setActiveId] = useState(sections[0]?.id ?? "");
   const [progress, setProgress] = useState(0);
   const [showTop, setShowTop] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
