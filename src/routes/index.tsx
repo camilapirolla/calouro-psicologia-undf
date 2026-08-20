@@ -12,6 +12,8 @@ import {
   SectionHeading,
   WaveStrip,
 } from "@/components/guia/ui";
+import capsiLogo from "@/assets/capsi-logo.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -721,15 +723,17 @@ function GuiaDoCalouro() {
         />
 
         <div className="relative mx-auto grid max-w-[1120px] gap-8 min-[940px]:grid-cols-[minmax(0,1fr)_260px] min-[940px]:items-center min-[940px]:gap-12">
-          {/* Área reservada para a logo do CAPsi */}
-          <div
-            aria-hidden="true"
-            className="order-first flex justify-center min-[940px]:order-last min-[940px]:justify-end"
-          >
-            <div className="grid size-[118px] place-items-center rounded-full border-2 border-dashed border-sand text-[0.62rem] font-semibold tracking-[0.18em] text-steel/70 uppercase min-[940px]:size-[240px] min-[940px]:text-[0.7rem]">
-              logo
-            </div>
+          {/* Logo do CAPsi */}
+          <div className="order-first flex justify-center min-[940px]:order-last min-[940px]:justify-end">
+            <img
+              src={capsiLogo.url}
+              alt="Logo do CAPsi UnDF, Centro Acadêmico de Psicologia"
+              width={240}
+              height={240}
+              className="size-[118px] object-contain min-[940px]:size-[240px]"
+            />
           </div>
+
 
           <div className="min-w-0">
             <p className="text-[0.7rem] font-semibold tracking-[0.22em] text-red uppercase sm:text-xs">
@@ -880,7 +884,15 @@ function GuiaDoCalouro() {
       {/* RODAPÉ */}
       <footer className="bg-navy px-5 py-14 text-cream sm:px-8">
         <div className="mx-auto max-w-3xl text-center">
+          <img
+            src={capsiLogo.url}
+            alt="Logo do CAPsi UnDF"
+            width={96}
+            height={96}
+            className="mx-auto mb-4 size-24 object-contain"
+          />
           <p className="font-display text-4xl text-cream">CAPsi UnDF</p>
+
           <p className="mt-2 text-[0.98rem] text-cream/85">
             Centro Acadêmico de Psicologia da Universidade do Distrito Federal
           </p>
