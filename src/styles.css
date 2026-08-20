@@ -44,6 +44,9 @@
   --color-sky: var(--sky);
   --color-cream: var(--cream);
   --color-sand: var(--sand);
+  --color-steel: var(--steel);
+  --color-mist: var(--mist);
+
 
   --font-display: "Chewy", ui-rounded, system-ui, cursive;
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
@@ -59,7 +62,11 @@
   --cream: oklch(0.9376 0.0279 81.47);
   --sand: oklch(0.8774 0.0433 84.56);
 
+  --steel: oklch(0.4959 0.0602 254.02);
+  --mist: oklch(0.7668 0.0428 249.51);
+
   --background: var(--cream);
+
   --foreground: var(--navy);
   --card: oklch(1 0 0);
   --card-foreground: var(--navy);
@@ -113,7 +120,14 @@
     scroll-behavior: smooth;
     scroll-padding-top: 6.5rem;
   }
+
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
 }
+
 
 @utility card-soft {
   background-color: var(--card);

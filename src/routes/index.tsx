@@ -489,7 +489,7 @@ const sections: Section[] = [
   },
   {
     id: "conselhos",
-    nav: "Conselhos",
+    nav: "Canais oficiais",
     title: "Canais oficiais da profissão",
     keywords: "conselho crp cfp codigo de etica profissao resolucoes fiscalizacao links oficiais",
     content: (
@@ -533,7 +533,8 @@ const sections: Section[] = [
     keywords:
       "dicas artigo cientifico abnt citacao referencia redes sociais futura psi terapia saude mental estudante",
     content: (
-      <div className="space-y-4">
+      <div className="grid gap-4 md:grid-cols-2">
+
         <Card tone="navy" title="Aprenda a ler artigo científico cedo">
           <P>
             É a habilidade que mais separa quem sofre de quem flui na graduação. Comece pelos textos
@@ -659,7 +660,7 @@ const chips = [
 
 function GuiaDoCalouro() {
   const [query, setQuery] = useState("");
-  const [activeId, setActiveId] = useState(sections[0].id);
+  const [activeId, setActiveId] = useState(sections[0]?.id ?? "");
   const [progress, setProgress] = useState(0);
   const [showTop, setShowTop] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -705,89 +706,101 @@ function GuiaDoCalouro() {
       <WaveStrip />
 
       {/* HERO */}
-      <header className="relative overflow-hidden bg-navy px-5 pt-14 pb-16 text-cream sm:px-8 sm:pt-20 sm:pb-20">
+      <header className="relative overflow-hidden border-b-[3px] border-sand bg-cream px-5 pt-12 pb-14 sm:px-8 sm:pt-16 sm:pb-18">
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -top-24 -left-20 size-72 blob-a bg-sky opacity-15"
+          className="pointer-events-none absolute -top-24 -left-20 size-72 blob-a bg-sand opacity-60"
         />
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -right-16 bottom-0 size-80 blob-c bg-red opacity-15"
+          className="pointer-events-none absolute -right-16 bottom-0 size-80 blob-c bg-sand opacity-45"
         />
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute top-1/3 right-1/4 size-40 blob-b bg-cream opacity-5"
+          className="pointer-events-none absolute top-1/3 right-1/4 size-40 blob-b bg-sand opacity-35"
         />
 
-        <div className="relative mx-auto max-w-3xl">
-          <p className="text-[0.7rem] font-semibold tracking-[0.22em] text-sky uppercase sm:text-xs">
-            Centro Acadêmico de Psicologia · UnDF
-          </p>
-          <h1 className="mt-4 text-6xl leading-[0.95] sm:text-8xl">
-            <span className="block text-cream">Guia do</span>
-            <span className="block text-sky">Calouro</span>
-          </h1>
-          <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-cream/90">
-            Chegou com dúvida? Pesquisa aqui. Reunimos o que a gente gostaria de saber no primeiro
-            dia de Psicologia na UnDF.
-          </p>
-
-          <div className="mt-8">
-            <label htmlFor="busca" className="sr-only">
-              Buscar no guia
-            </label>
-            <div className="flex items-center gap-3 rounded-full bg-card px-5 py-3 shadow-[var(--shadow-lift)] sm:px-6 sm:py-4">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                fill="none"
-                className="size-5 shrink-0 text-navy"
-              >
-                <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2.2" />
-                <path
-                  d="M20 20L16.5 16.5"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                />
-              </svg>
-              <input
-                id="busca"
-                type="search"
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Ex.: passe livre, faltas, portal, auxílio…"
-                className="w-full bg-transparent text-[1rem] text-navy placeholder:text-muted-foreground focus:outline-none"
-              />
-              {query ? (
-                <button
-                  type="button"
-                  aria-label="Limpar busca"
-                  onClick={() => setQuery("")}
-                  className="grid size-7 shrink-0 place-items-center rounded-full bg-red text-sm font-bold text-cream"
-                >
-                  ×
-                </button>
-              ) : null}
+        <div className="relative mx-auto grid max-w-[1120px] gap-8 min-[940px]:grid-cols-[minmax(0,1fr)_260px] min-[940px]:items-center min-[940px]:gap-12">
+          {/* Área reservada para a logo do CAPsi */}
+          <div
+            aria-hidden="true"
+            className="order-first flex justify-center min-[940px]:order-last min-[940px]:justify-end"
+          >
+            <div className="grid size-[118px] place-items-center rounded-full border-2 border-dashed border-sand text-[0.62rem] font-semibold tracking-[0.18em] text-steel/70 uppercase min-[940px]:size-[240px] min-[940px]:text-[0.7rem]">
+              logo
             </div>
-            <p aria-live="polite" className="mt-3 min-h-6 text-sm font-medium text-sky">
-              {query
-                ? `${visibleSections.length} ${visibleSections.length === 1 ? "seção encontrada" : "seções encontradas"}`
-                : ""}
-            </p>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-2.5">
-            {chips.map((chip) => (
-              <button
-                key={chip.target}
-                type="button"
-                onClick={() => scrollTo(chip.target)}
-                className="rounded-full border border-sky/40 bg-cream/10 px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-sky hover:text-navy"
-              >
-                {chip.label}
-              </button>
-            ))}
+          <div className="min-w-0">
+            <p className="text-[0.7rem] font-semibold tracking-[0.22em] text-red uppercase sm:text-xs">
+              Centro Acadêmico de Psicologia · UnDF
+            </p>
+            <h1 className="mt-4 text-6xl leading-[0.95] sm:text-8xl">
+              <span className="block text-navy">Guia do</span>
+              <span className="block text-red">Calouro</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-steel">
+              Chegou com dúvida? Pesquisa aqui. Reunimos o que a gente gostaria de saber no primeiro
+              dia de Psicologia na UnDF.
+            </p>
+
+            <div className="mt-8 max-w-xl">
+              <label htmlFor="busca" className="sr-only">
+                Buscar no guia
+              </label>
+              <div className="flex items-center gap-3 rounded-full border-[3px] border-navy bg-card px-5 py-3 sm:px-6 sm:py-4">
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="size-5 shrink-0 text-navy"
+                >
+                  <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2.2" />
+                  <path
+                    d="M20 20L16.5 16.5"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <input
+                  id="busca"
+                  type="search"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder="Ex.: passe livre, faltas, portal, auxílio…"
+                  className="w-full bg-transparent text-[1rem] text-navy placeholder:text-muted-foreground focus:outline-none"
+                />
+                {query ? (
+                  <button
+                    type="button"
+                    aria-label="Limpar busca"
+                    onClick={() => setQuery("")}
+                    className="grid size-7 shrink-0 place-items-center rounded-full bg-red text-sm font-bold text-cream"
+                  >
+                    ×
+                  </button>
+                ) : null}
+              </div>
+              <p aria-live="polite" className="mt-3 min-h-6 text-sm font-semibold text-red">
+                {query
+                  ? `${visibleSections.length} ${visibleSections.length === 1 ? "seção encontrada" : "seções encontradas"}`
+                  : ""}
+              </p>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              {chips.map((chip) => (
+                <button
+                  key={chip.target}
+                  type="button"
+                  onClick={() => scrollTo(chip.target)}
+                  className="rounded-full border border-sand bg-card px-4 py-2 text-sm font-medium text-navy transition-colors hover:bg-navy hover:text-cream"
+                >
+                  {chip.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </header>
@@ -795,9 +808,9 @@ function GuiaDoCalouro() {
       {/* NAV STICKY */}
       <div
         ref={navRef}
-        className="sticky top-0 z-40 border-b border-sand/70 bg-cream/85 backdrop-blur-md"
+        className="sticky top-0 z-40 border-b border-navy/40 bg-navy/90 backdrop-blur-md"
       >
-        <nav aria-label="Seções do guia" className="mx-auto max-w-4xl">
+        <nav aria-label="Seções do guia" className="mx-auto max-w-[1120px]">
           <ul className="flex gap-2 overflow-x-auto px-4 py-3 no-scrollbar">
             {sections.map((section) => (
               <li key={section.id}>
@@ -807,8 +820,8 @@ function GuiaDoCalouro() {
                   aria-current={activeId === section.id ? "true" : undefined}
                   className={`rounded-full px-4 py-1.5 text-sm font-medium whitespace-nowrap transition-colors ${
                     activeId === section.id
-                      ? "bg-navy text-cream"
-                      : "bg-card text-navy hover:bg-sand"
+                      ? "bg-cream text-navy"
+                      : "text-mist hover:bg-white/12 hover:text-cream"
                   }`}
                 >
                   {section.nav}
@@ -817,7 +830,7 @@ function GuiaDoCalouro() {
             ))}
           </ul>
         </nav>
-        <div className="h-1 w-full bg-sand">
+        <div className="h-1 w-full bg-navy-soft">
           <div
             className="h-full bg-red transition-[width] duration-150"
             style={{ width: `${progress}%` }}
@@ -827,7 +840,7 @@ function GuiaDoCalouro() {
       </div>
 
       {/* SEÇÕES */}
-      <main className="mx-auto max-w-3xl px-5 py-12 sm:px-8 sm:py-16">
+      <main className="mx-auto max-w-[1120px] px-5 py-12 sm:px-8 sm:py-16">
         {visibleSections.length === 0 ? (
           <div className="card-soft p-8 text-center" style={{ boxShadow: "var(--shadow-soft)" }}>
             <span
@@ -843,14 +856,18 @@ function GuiaDoCalouro() {
         ) : (
           <div className="space-y-14">
             {visibleSections.map((section) => (
-              <section key={section.id} id={section.id} className="scroll-mt-28">
-                <FadeUp>
+              <section
+                key={section.id}
+                id={section.id}
+                className="scroll-mt-28 min-[940px]:grid min-[940px]:grid-cols-[250px_minmax(0,1fr)] min-[940px]:gap-[2.6rem]"
+              >
+                <FadeUp className="min-[940px]:sticky min-[940px]:top-[86px] min-[940px]:self-start">
                   <SectionHeading
                     index={sections.findIndex((item) => item.id === section.id)}
                     title={section.title}
                   />
                 </FadeUp>
-                <FadeUp delay={80} className="mt-6">
+                <FadeUp delay={80} className="mt-6 min-w-0 min-[940px]:mt-0 min-[940px]:max-w-[720px]">
                   {section.content}
                 </FadeUp>
               </section>
@@ -858,6 +875,7 @@ function GuiaDoCalouro() {
           </div>
         )}
       </main>
+
 
       {/* RODAPÉ */}
       <footer className="bg-navy px-5 py-14 text-cream sm:px-8">
