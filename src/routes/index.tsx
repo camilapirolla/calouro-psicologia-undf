@@ -721,15 +721,17 @@ function GuiaDoCalouro() {
         />
 
         <div className="relative mx-auto grid max-w-[1120px] gap-8 min-[940px]:grid-cols-[minmax(0,1fr)_260px] min-[940px]:items-center min-[940px]:gap-12">
-          {/* Área reservada para a logo do CAPsi */}
-          <div
-            aria-hidden="true"
-            className="order-first flex justify-center min-[940px]:order-last min-[940px]:justify-end"
-          >
-            <div className="grid size-[118px] place-items-center rounded-full border-2 border-dashed border-sand text-[0.62rem] font-semibold tracking-[0.18em] text-steel/70 uppercase min-[940px]:size-[240px] min-[940px]:text-[0.7rem]">
-              logo
-            </div>
+          {/* Logo do CAPsi */}
+          <div className="order-first flex justify-center min-[940px]:order-last min-[940px]:justify-end">
+            <img
+              src={capsiLogo.url}
+              alt="Logo do CAPsi UnDF, Centro Acadêmico de Psicologia"
+              width={240}
+              height={240}
+              className="size-[118px] object-contain min-[940px]:size-[240px]"
+            />
           </div>
+
 
           <div className="min-w-0">
             <p className="text-[0.7rem] font-semibold tracking-[0.22em] text-red uppercase sm:text-xs">
