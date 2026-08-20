@@ -12,6 +12,8 @@ import {
   SectionHeading,
   WaveStrip,
 } from "@/components/guia/ui";
+import capsiLogo from "@/assets/capsi-logo.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -882,7 +884,15 @@ function GuiaDoCalouro() {
       {/* RODAPÉ */}
       <footer className="bg-navy px-5 py-14 text-cream sm:px-8">
         <div className="mx-auto max-w-3xl text-center">
+          <img
+            src={capsiLogo.url}
+            alt="Logo do CAPsi UnDF"
+            width={96}
+            height={96}
+            className="mx-auto mb-4 size-24 object-contain"
+          />
           <p className="font-display text-4xl text-cream">CAPsi UnDF</p>
+
           <p className="mt-2 text-[0.98rem] text-cream/85">
             Centro Acadêmico de Psicologia da Universidade do Distrito Federal
           </p>
