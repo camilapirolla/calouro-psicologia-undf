@@ -533,7 +533,8 @@ const sections: Section[] = [
     keywords:
       "dicas artigo cientifico abnt citacao referencia redes sociais futura psi terapia saude mental estudante",
     content: (
-      <div className="space-y-4">
+      <div className="grid gap-4 md:grid-cols-2">
+
         <Card tone="navy" title="Aprenda a ler artigo científico cedo">
           <P>
             É a habilidade que mais separa quem sofre de quem flui na graduação. Comece pelos textos
