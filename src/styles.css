@@ -120,7 +120,14 @@
     scroll-behavior: smooth;
     scroll-padding-top: 6.5rem;
   }
+
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
 }
+
 
 @utility card-soft {
   background-color: var(--card);
